@@ -19,7 +19,7 @@ bootstrap-destinations: ## Bootstrap various containerized database/stream syste
 	docker-compose -f examples/devel/docker-compose.yml up -d
 
 build-docker: ## Build local buz image
-	docker build -f deploy/Dockerfile -t buz:$(VERSION) .
+	docker build -f deploy/Dockerfile -t buz:$(VERSION) . --platform linux/amd64
 
 buildx-deploy: ## Build multi-platform buz image and push it to edge repo
 	docker buildx create --name $(S) || true;
